@@ -3,6 +3,7 @@ Mit dem yield Operator können Generatoren erstellt werden. Diese können in ein
 abgearbeitet werden.
 """
 
+
 def fibonacci(n):
     """Ein Fibonacci-Zahlen-Generator"""
     a, b, counter = 0, 1, 0
@@ -12,8 +13,9 @@ def fibonacci(n):
         a, b = b, a + b
         counter += 1
 
-fibIterator = fibonacci(5)
-for x in fibIterator:
+
+fibIterator = fibonacci(5)  # Beim Erstellen des Generators wird noch kein Code davon ausgeführt
+for x in fibIterator:  # Erst bei der ersten Iteration erfolgt der Code Aufruf
     print(x)
 
 """Generatoren können nur einmal aufgerufen werden, folgender Code bleibt wirkungslos"""
