@@ -15,7 +15,15 @@ def filter_map_reduce(names):
 def start():
     names = ["Susanna", "Joe", "Lu", "Timmy", "Rafael", "Lisa"]
     result = filter_map_reduce(names)
+    result_chained = filter_map_reduce_chained(names)
     print(result)
+    print(result_chained)
+
+
+def filter_map_reduce_chained(names):
+    return reduce(lambda x, y: x + " " + y,
+                  map(lambda x: x.upper(),
+                      filter(lambda x: 3 <= len(x) <= 4, names)))
 
 
 start()
