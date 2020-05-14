@@ -1,21 +1,36 @@
 # PCP Python Bericht
 #
 # Type-System
-#
+# -------------------------------------------------------------------------------
+#  Zahlen
+#     ---> int, float, complex
+#  Collection
+#     ---> Sequenzen   ---> unveränderbar ---> str, bytestring, tuple
+#                      ---> veränderbar   ---> list, bytearray
+#     ---> Mengen      ---> set, frozenset
+#     ---> Abbildungen ---> dict
+#  Boolean             ---> bool
+#  NoneType            ---> None
+# -------------------------------------------------------------------------------
 
 # Duck Typing
+# Typ wird automatisch anhand der Eigenschaften evaluiert.
 a = 42
-b = '42'
-c = '42b'
-d = 42.1337
-
 print('Type von a:',  type(a), 'Value von a:', a)
-print('Type von b:', type(b), 'Value von b:', b)
-print('Type von c:', type(c), 'Value von c:', c)
-print('Type von d:', type(d), 'Value von d:', d)
 
+a = '42'
+print('Type von a:', type(a), 'Value von b:', a)
 
+a = '42b'
+print('Type von a:', type(a), 'Value von c:', a)
 
-print(type(c))
-i = str(c)
-print(type(c))
+a = 42.1337
+print('Type von a:', type(a), 'Value von d:', a)
+
+a = int(a)
+print(type(a))
+a = str(a)
+print(type(a))
+a = int(a)
+print(type(a))
+print(a)
