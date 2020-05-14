@@ -6,7 +6,7 @@ abgearbeitet werden.
 
 def fibonacci(n):
     """Ein Fibonacci-Zahlen-Generator"""
-    a, b, counter = 0, 1, 0
+    a, b, counter = 0, 1, 0  # Wird nur beim ersten Aufruf des Generators aufgerufen
     while True:
         if counter > n: return
         yield a
@@ -14,9 +14,16 @@ def fibonacci(n):
         counter += 1
 
 
-fibIterator = fibonacci(5)  # Beim Erstellen des Generators wird noch kein Code davon ausgeführt
-for x in fibIterator:  # Erst bei der ersten Iteration erfolgt der Code Aufruf
-    print(x)
+"""Generatoren werden lazy instanziert. Sie werden somit erst ausgeführt, wenn ein Resultat benötigt wird."""
+
+fibIterator = fibonacci(5)
+
+print(fibIterator.__next__())  # 0
+print(fibIterator.__next__())  # 1
+print(fibIterator.__next__())  # 1
+print(fibIterator.__next__())  # 2
+print(fibIterator.__next__())  # 3
+print(fibIterator.__next__())  # 5
 
 """Generatoren können nur einmal aufgerufen werden, folgender Code bleibt wirkungslos"""
 for y in fibIterator:
@@ -24,5 +31,6 @@ for y in fibIterator:
 
 """Erst wenn der Generator neu erzeugt wird, werden die Zahlenfolgen erneut ausgegeben."""
 fibIterator = fibonacci(5)
+print("Erst bei einer erneuten Instanzierung kann der Generator erneut ausgeführt werden...")
 for y in fibIterator:
     print(y)

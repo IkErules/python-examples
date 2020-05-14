@@ -1,8 +1,8 @@
 import asyncio
 import time
 
-"""First example"""
 
+# TODO: Als Klasse implementieren, mit schöneren Methoden aufruf.
 
 async def await_example():
     print("hello...")
@@ -35,12 +35,14 @@ asyncio.run(await_time_example())
 async def nested():
     print(42)
 
+
 async def task_example():
     # Erstellen eines Tasks, welche die Methode nested() erstellt und ausführt
     task = asyncio.create_task(nested())
 
     # Task kann awaited werden oder nebenläufig ausgeführt werden
     await task
+
 
 print("------ third example ------")
 asyncio.run(task_example())
