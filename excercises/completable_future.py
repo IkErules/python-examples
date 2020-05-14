@@ -1,5 +1,5 @@
 """
-Übung Java 9, Teil 3+4
+Übung Java 8, Teil 3+4
 ---- Nr. 3 ----
 """
 import asyncio
