@@ -8,7 +8,7 @@ def fibonacci(n):
     """Ein Fibonacci-Zahlen-Generator"""
     a, b, counter = 0, 1, 0  # Wird nur beim ersten Aufruf des Generators aufgerufen
     while True:
-        if counter > n: return
+        if counter >= n: return
         yield a
         a, b = b, a + b
         counter += 1
@@ -18,16 +18,19 @@ def fibonacci(n):
 
 fibIterator = fibonacci(5)
 
+print("Erster Aufruf des Iterators")
 print(fibIterator.__next__())  # 0
 print(fibIterator.__next__())  # 1
 print(fibIterator.__next__())  # 1
 print(fibIterator.__next__())  # 2
 print(fibIterator.__next__())  # 3
-print(fibIterator.__next__())  # 5
+
 
 """Generatoren können nur einmal aufgerufen werden, folgender Code bleibt wirkungslos"""
+print("Zweiter Aufruf nicht möglich...")
 for y in fibIterator:
     print(y)
+
 
 """Erst wenn der Generator neu erzeugt wird, werden die Zahlenfolgen erneut ausgegeben."""
 fibIterator = fibonacci(5)
