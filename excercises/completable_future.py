@@ -10,42 +10,38 @@ THREE_SECONDS = 3
 SIX_SECONDS = 6
 
 
-async def start():
-    asyncio.create_task(do_async_stuff())
-    await print_dots()
+class AwaitableFuture:
+
+    async def start(self):
+        asyncio.create_task(self.__do_async_stuff())
+        await self.__print_dots()
+
+    async def __do_async_stuff(self):
+        task_1 = asyncio.create_task(self.__wait_and_return_result(THREE_SECONDS))
+        task_2 = asyncio.create_task(self.__wait_and_return_result(SIX_SECONDS))
+        await task_1
+        await task_2
+        await self.__do_blocking_wait(TWO_SECONDS)
+        waited_time = (task_1.result() + task_2.result() + TWO_SECONDS) * 1000
+        self.__print_result("was waiting for %r ms" % waited_time)
+
+    async def __wait_and_return_result(self, time):
+        await asyncio.sleep(time)
+        self.__print_result(time * 1000)
+        return time
+
+    def __print_result(self, result):
+        print(str(result))
+
+    async def __do_blocking_wait(self, time):
+        await asyncio.sleep(time)
+
+    async def __print_dots(self):
+        print("-> Now waiting for things to happen!")
+        for i in range(0, 20):
+            self.__print_result(".")
+            await self.__do_blocking_wait(HALF_SECOND)
 
 
-async def do_async_stuff():
-    task_1 = asyncio.create_task(wait_and_return_result(THREE_SECONDS))
-    task_2 = asyncio.create_task(wait_and_return_result(SIX_SECONDS))
-
-    await task_1
-    await task_2
-
-    await do_blocking_wait(TWO_SECONDS)
-    waited_time = (task_1.result() + task_2.result() + TWO_SECONDS) * 1000
-    print_result("was waiting for %r ms" % waited_time)
-
-
-async def wait_and_return_result(time):
-    await asyncio.sleep(time)
-    print_result(time * 1000)
-    return time
-
-
-def print_result(result):
-    print(str(result))
-
-
-async def print_dots():
-    print("-> Now waiting for things to happen!")
-    for i in range(0, 20):
-        print_result(".")
-        await do_blocking_wait(HALF_SECOND)
-
-
-async def do_blocking_wait(time):
-    await asyncio.sleep(time)
-
-
-asyncio.run(start())
+awaitable_future = AwaitableFuture()
+asyncio.run(awaitable_future.start())
