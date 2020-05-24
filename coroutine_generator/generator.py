@@ -25,6 +25,8 @@ print(fibIterator.__next__())  # 1
 print(fibIterator.__next__())  # 2
 print(fibIterator.__next__())  # 3
 
+StopIteration
+
 
 """Generatoren können nur einmal aufgerufen werden, folgender Code bleibt wirkungslos"""
 print("Zweiter Aufruf nicht möglich...")
