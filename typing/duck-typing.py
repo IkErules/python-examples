@@ -19,13 +19,13 @@ a = 42
 print('Type von a:',  type(a), 'Value von a:', a)
 
 a = '42'
-print('Type von a:', type(a), 'Value von b:', a)
+print('Type von a:', type(a), 'Value von a:', a)
 
 a = '42b'
-print('Type von a:', type(a), 'Value von c:', a)
+print('Type von a:', type(a), 'Value von a:', a)
 
 a = 42.1337
-print('Type von a:', type(a), 'Value von d:', a)
+print('Type von a:', type(a), 'Value von a:', a)
 
 a = int(a)
 print(type(a))

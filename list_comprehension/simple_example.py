@@ -18,6 +18,6 @@ print("Funktional:         ", functional)
 # -------------------------------------------------------------
 
 # List Comprehension
-list_comprehension =[y * 2 for y in [1, 2, 3, 4, 5]]
+list_comprehension =[x * 2 for x in [1, 2, 3, 4, 5]]
 print("List Comprehension: ", list_comprehension)
 # -------------------------------------------------------------
