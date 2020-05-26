@@ -22,3 +22,4 @@ class Rechteck:
 
 
 r1 = Rechteck(12, 4)
+print(type (r1))
