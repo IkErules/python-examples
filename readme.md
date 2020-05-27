@@ -2,12 +2,9 @@
 
 ## Project setup
 To run the project on your machine use following tools:
-* python version 3.8
+* python version 3.7
 * IDE: PyCharm
 
-## Coroutine examples
-To run coroutine examples you have to use python console:
-1. open your favorite console
-2. navigate to directory ./coroutine_generator/ of this project
-3. run coroutine example by typing `python coroutinge.py`
-4. watch output :)
+If you use python version 3.7, you can run all examples directly in IDE. With version 3.8 you probably have to run the coroutine and completabe_future example from a python console. I ran into problems while running them in PyCharm.
+
+Have fun \m/
