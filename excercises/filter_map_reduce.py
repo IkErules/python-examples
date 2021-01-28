@@ -30,7 +30,7 @@ def list_comprehensions(names):
     """
     Mit list comprehensions können map und filter statements zusammengefasst werden.
     """
-    names = [name.upper() for name in names if 3 <= len(name) <= 4]
+    names = (name.upper() for name in names if 3 <= len(name) <= 4)
     return reduce(lambda x, y: x + " " + y, names)
 
 

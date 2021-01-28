@@ -25,6 +25,8 @@ print(fibIterator.__next__())  # 1
 print(fibIterator.__next__())  # 2
 print(fibIterator.__next__())  # 3
 
+
+
 StopIteration
 
 
